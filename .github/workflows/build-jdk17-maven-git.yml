@@ -22,7 +22,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./Dockerfiles/Dockerfile.jdk17-maven-git
+        file: ./Dockerfile.jdk17-maven-git
         push: true
         tags: |
           ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner-jdk17-maven-git:latest
