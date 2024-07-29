@@ -1,7 +1,8 @@
-name: Primary Build
+name: Do The Docker Dew - JDK17-maven-git
 on:
-  - push
-
+  push:
+  workflow_dispatch:
+  
 jobs:
   build-and-push:
     runs-on: arc-runners
@@ -21,7 +22,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
+        file: ./Dockerfiles/Dockerfile.jdk17-maven-git
         push: true
         tags: |
-          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner:latest
-          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner:${{ github.sha }}  
+          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner-jdk17-maven-git:latest
+          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner-jdk17-maven-git:${{ github.sha }}  
