@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     git \
     jq \
-    yq \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
