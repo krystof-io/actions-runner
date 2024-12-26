@@ -45,7 +45,7 @@ ENV PATH $PATH:$MAVEN_HOME/bin
 RUN VERSION=v4.40.5 && \
     BINARY=yq_linux_amd64 && \
     wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - |\
-    tar xz && mv ${BINARY} /usr/bin/yq \
+    tar xz && mv ${BINARY} /usr/bin/yq
 
 # Install kubectl
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
