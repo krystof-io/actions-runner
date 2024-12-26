@@ -50,7 +50,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 RUN curl -s https://fluxcd.io/install.sh | bash
 
 # Verify installations
-RUN java -version && mvn -version && git --version && flux -v && kubectl version --client=false
+RUN java -version && mvn -version && git --version && flux -v && kubectl version --client=true
 
 # Switch back to the default user
 USER runner
