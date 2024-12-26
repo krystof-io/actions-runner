@@ -1,4 +1,4 @@
-name: Do The Docker Dew - JDK17-maven-git
+name: Do The Docker Dew - JDK17-maven-git-kubectl-cicd
 on:
   push:
   workflow_dispatch:
@@ -22,8 +22,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./jdk17-maven-git/Dockerfile
+        file: ./jdk17-maven-git-kubectl-cicd/Dockerfile
         push: true
         tags: |
-          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner-jdk17-maven-git:latest
-          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner-jdk17-maven-git:${{ github.sha }}  
+          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner-jdk17-maven-git-kubectl-cicd:latest
+          ${{ vars.IMAGE_REGISTRY_HOST }}/${{ github.repository_owner }}/actions-runner-jdk17-maven-git-kubectl-cicd:${{ github.sha }}  
