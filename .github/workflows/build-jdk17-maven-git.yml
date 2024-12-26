@@ -5,7 +5,7 @@ on:
   
 jobs:
   build-and-push:
-    runs-on: arc-runners
+    runs-on: arc-runners-prod
     
     steps:
     - name: Checkout
