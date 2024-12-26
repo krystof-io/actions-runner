@@ -8,8 +8,14 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     wget \
+    apt-transport-https \
+    ca-certificates \
     software-properties-common \
+    git \
+    jq \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Install latest Java 17 LTS from Adoptium
 RUN wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add - && \
@@ -35,8 +41,16 @@ RUN MAVEN_VERSION=$(curl -s https://maven.apache.org/download.cgi | grep -oP 'Ap
 ENV MAVEN_HOME /usr/local/maven
 ENV PATH $PATH:$MAVEN_HOME/bin
 
+# Install kubectl
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+    && chmod +x kubectl \
+    && mv kubectl /usr/local/bin/
+
+# Install Flux CLI
+RUN curl -s https://fluxcd.io/install.sh | bash
+
 # Verify installations
-RUN java -version && mvn -version && git --version
+RUN java -version && mvn -version && git --version && flux - && kubectl version
 
 # Switch back to the default user
 USER runner
