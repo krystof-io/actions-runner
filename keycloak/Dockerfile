@@ -1,3 +1,4 @@
+#DEPRECATED - We use bitnami to just shove the jar in now.
 ARG KEYCLOAK_VERSION=26.2.1
 FROM bitnami/keycloak:${KEYCLOAK_VERSION}
 
