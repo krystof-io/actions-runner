@@ -1,4 +1,5 @@
-FROM bitnami/keycloak:latest
+ARG KEYCLOAK_VERSION=26.2.1
+FROM bitnami/keycloak:${KEYCLOAK_VERSION}
 
 # Switch to root user to ensure proper permissions when copying files
 USER root
