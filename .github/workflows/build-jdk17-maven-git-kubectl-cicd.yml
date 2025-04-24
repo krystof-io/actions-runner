@@ -1,6 +1,5 @@
 name: Do The Docker Dew - JDK17-maven-git-kubectl-cicd
 on:
-  push:
   workflow_dispatch:
   
 jobs:
